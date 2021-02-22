@@ -1,0 +1,401 @@
+/* 
+Author: Mohammed Alameri ;
+Video Assignment link: https://www.youtube.com/watch?v=MNQZALv5thM ;
+codepen link: https://codepen.io/mohammedagl6/full/mdOVjoy ;
+Alternative website link: www.aqial.com/hyf ;
+*/
+
+
+
+
+
+/* common style configurations */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{		
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2rem;
+	color: #FFF;
+	position: relative;
+}
+h1, h2{
+	font-weight: 300;	
+	text-shadow: 0px 3px 2px rgb(50 50 50);
+}
+h1{
+	text-align: center;	
+	font-size: 2.5rem;	
+	margin-bottom: 15px;
+}
+h2{
+	font-size: 2rem;	
+}
+
+/* whole page body */
+.container{
+	min-height: 100%;
+	background: url("https://aqial.com/hyf/img/1.jpg") left top / cover no-repeat;
+	transition: all 2s ease-in-out;	/* easing the changing of the image via Javascript */
+	display: flex;	
+}
+
+
+/* navigation menu */
+header{
+	background-color: rgb(0,0,0, 0.5);
+}
+.nav button{
+	position: absolute;
+	top:0;
+	left: -70px;	
+	padding: 10px 15px;
+	background-color: #000000c4;
+	color: #CA2026;
+	border-radius: 5px;
+	width: 60px;
+	height: 50px;
+	z-index: 3;
+	cursor: pointer;
+	margin-top: 4px;
+	margin-left: 4px;
+	border: 1px solid;
+	font-size: 1.3rem;
+	display: block;
+}
+.nav ul{
+	list-style: none;
+	padding: 75px 45px 45px;
+	display: flex;
+	flex-direction: column;	
+}
+.nav a{
+	text-decoration: none;
+	color: #FFF;
+	font-size: 1.5rem;
+	font-weight: 300;
+	display: block;
+	padding: 20px 30px 20px 0;
+	transition: color .3s;	
+}
+.nav a:hover{
+	color:#CA2026;	
+	border-bottom: none;
+}
+.nav li{
+	position: relative;
+	border-bottom: 2px solid #FFF;	
+}
+.nav li:after{
+	transition: all ease-in-out 0.3s;
+	content: "";
+	position: absolute;
+	display: block;
+	height: 2px;
+	width: 0;
+	background-color: #CA2026;	
+}
+.nav li:hover:after{
+	width: 100%;
+}
+.circle{
+	width:55px;
+	height: 55px;
+	border-radius: 50%;
+	border: 1px solid #FFF;
+	padding: 13px;
+	margin-right: 15px;
+	transition: border-color .3s ease-in-out;
+}
+.nav a:hover .circle{
+	border-color: #CA2026
+}
+
+
+/* main content (pages or sections) */
+.content{
+	flex: 1;
+	padding-top: 100px;
+	padding-bottom: 70px;
+}
+
+/* for all sections (pages content) in the  main content*/
+section{
+	width: 80%;
+	margin: 0 auto;
+	padding: 45px 0;
+	animation-name: flip_page;
+	animation-duration: .5s;
+	animation-timing-function: ease-in-out;	
+}
+/*Pages animation when open*/
+@keyframes flip_page{
+	0%{
+		transform: rotateY(.25turn);
+	}
+
+}
+
+/* To delete the padding from top in Menu and Branches pages
+becuase they don't have the trans background in the whole section
+*/
+#section-2, #section-3{
+	padding: 0;
+}
+
+/*common class for transparent background */
+.bg-trans{
+	background-color: rgba(0,0,0,0.25);
+}
+
+/* main page section */
+.section-inner{
+	padding: 20px;
+}
+.section-inner p{
+	font-size: 1.3rem;
+	line-height: 2.2;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+
+/* comment style for the buttons in the pages content */
+.btn{
+	display: inline-block;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	padding: 15px 50px;
+	font-size: 1.3rem;
+	font-weight: 300;
+	border:1px solid #FFF;
+	border-radius: .25rem;
+	cursor: pointer;
+	transition: border-color .3s ease-in-out, color .3s ease-in-out;
+}
+.btn:hover{
+	border-color: #33ccff;
+	color:#33ccff;
+}
+
+/* configuring grid view for Menu and Branches pages */
+.grid-4{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
+}
+.grid-item{
+	padding: 30px;
+	border: 1px solid #FFF;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+/* Menu page grid */
+.menu-desc{
+	flex:150px;
+}
+.grid-item img{
+	width:115px;
+	height: 115px;
+	border: 1px solid #FFF;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+.grid-item h3{
+	margin-bottom: 10px;
+	font-size: 1.75rem;
+	font-weight: 300;
+}
+.grid-item p{
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 2.2;
+}
+.grid-item h5{
+	text-align: center;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* Branches page grid */
+.grid-show{
+	position: relative;
+	box-shadow: 6px 6px 20px rgb(0 0 0 / 21%);
+	overflow: hidden;
+	cursor: pointer;
+}
+.grid-show img{
+	width: 100%;	
+}
+.grid-show:hover img{
+	transform: scale(1.1);
+	transition: all .5s ease-out;	
+}
+.grid-show:hover{
+	border: 1px solid #FFF;
+}
+.address{
+	position: absolute;
+	padding: 15px;
+	bottom: 0;
+	font-size: 1.2rem;
+    font-weight: 300;
+    width: 100%;
+    display: flex;
+}
+
+/* Contact Us page */
+.contact{
+	display: flex;
+	flex-direction: column;
+}
+.cont-header, .cont-form, .cont-info{
+	padding: 10px 15px;	
+}
+.cont-header{
+	flex:1;
+}
+.cont-form, .cont-info{
+	flex:330px;
+}
+.cont-body{
+	display: flex;
+	flex-wrap: wrap;	
+}
+.cont-form{
+	display: flex;
+	flex-direction: column;	
+}
+.cont-form input, textarea{
+	padding: 15px;
+	margin-bottom: 15px;
+	color: #FFF;
+	border-color: #FFF;
+	background-color: transparent;
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: 0;
+	border: 1px solid #FFF;
+	transition: all .3s ease-in-out;
+
+}
+/*replacing default style for placeholder */
+::placeholder{
+	color: #FFF;
+	opacity: 1;
+	font-weight: 300;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+.cont-form input:focus, textarea:focus{
+	outline: none !important;
+    border:1px solid #33ccff;
+    box-shadow: 0 0 10px #719ECE;
+}
+.cont-info p{
+	margin-bottom: 10px;
+	font-size: 1.15rem;
+	font-weight: 300;
+	line-height: 1.6
+}
+
+
+/* footer absolute postion */
+footer{
+	padding: 15px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	font-size: .85rem;
+}
+
+
+/* logo also absolute */
+.logo{
+	position: absolute;
+	top:8px;	
+	left: 37px;	
+	animation-name: stretch;	
+	animation-duration: 1.5s; 
+	animation-timing-function: ease-out; 
+	animation-delay: .9s;
+	animation-direction: alternate;	
+	animation-play-state: running;	
+}
+/*adding animation to the logo */
+@keyframes stretch { 
+	0% {
+   		transform: scale(1);    
+ 	}
+ 	50%{
+  		transform: scale(.5); 
+    }
+    100% {
+    	transform: scale(1);    
+ 	}
+}
+
+/* this the class used by javascript to show and hide pages (sections) */
+.hidden{
+	display: none;
+}
+/* changing the menu link color to identify which page we are in now. Also used by javascript*/
+.current-page{
+	color:#CA2026 !important;
+}
+
+
+
+/* for small screens */
+
+
+/*@media only screen and (max-width: 760px){
+	.nav button{
+		left:0;
+	}
+	.nav ul{
+		position: absolute;
+		top:0;
+		left:-700px;
+		transition: all .3s ease-in-out;
+	}
+	ul.nav-show{
+		left:0;
+		background-color: rgba(0,0,0,0.9);
+		z-index: 2;
+	}
+	.logo{
+		left:67px;
+	}
+}*/
+@media only screen and (max-width: 990px){
+	.nav button{
+		left:0;
+	}
+	.nav ul{
+		position: absolute;
+		top:0;
+		left:-700px;
+		transition: all .3s ease-in-out;
+	}
+	ul.nav-show{
+		left:0;
+		background-color: rgba(0,0,0,0.9);
+		z-index: 2;
+	}
+	.logo{
+		left:67px;
+	}
+}
+
+@media only screen and (max-width: 590px){
+	section{
+		width: 95%;
+	}
+}
